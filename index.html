@@ -69,8 +69,13 @@
     </style>
     <script>
         function redirectToLink() {
-            let input = document.getElementById("redirect-input").value;
-            if (input.trim() !== "") {
+            let input = document.getElementById("redirect-input").value.trim();
+            // Ensure input is a valid URL, starting with http:// or https://
+            if (input !== "") {
+                if (!input.startsWith("http://") && !input.startsWith("https://")) {
+                    input = "https://" + input; // Automatically add https:// if not provided
+                }
+                // Redirect to the input URL
                 window.location.href = input;
             } else {
                 alert("Please enter a valid URL.");
