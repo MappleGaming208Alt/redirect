@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Form</title>
+    <style>
+        .redirect-button {
+            display: inline-block;
+            max-width: 270px;
+            color: #fff;
+            background: rgb(53,177,203);
+            height: 40px;
+            line-height: 40px;
+            border-radius: 3px;
+            font-family: Calibri, Arial, Helvetica, sans-serif;
+            cursor: pointer;
+            transition: all .1s ease-in-out;
+            width: 50%;
+            position: relative;
+            text-align: center;
+        }
+
+        .redirect-button:hover {
+            box-shadow: -2px 2px 1px 1px #ccc;
+            transform: translateX(3px);
+        }
+
+        .redirect-button a {
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .redirect-button a:visited {
+            color: #fff;
+        }
+
+        .redirect-button--icon {
+            display: inline-block;
+            height: 40px;
+            line-height: 40px;
+            background: rgb(42,141,161);
+            padding: 0 10px;
+            margin-left: 10px;
+            border-radius: 0 3px 3px 0;
+            position: absolute;
+            right: 0;
+        }
+
+        input[type=text].redirect-input {
+            border: 2px solid rgb(42,141,161);
+            border-radius: 2px;
+            padding: 5px;
+            margin: 5px;
+            transition: all 0.30s ease-in-out;
+            outline: none;
+            font-size: 14px;
+            height: 26px;
+            line-height: 26px;
+        }
+
+        input[type=text]:focus.redirect-input {
+            box-shadow: 0 0 5px rgba(53, 177, 203, 1);
+            border: 2px solid rgba(53, 177, 203, 1);
+        }
+    </style>
+    <script>
+        function redirectToLink() {
+            let input = document.getElementById("redirect-input").value;
+            if (input.trim() !== "") {
+                window.location.href = input;
+            } else {
+                alert("Please enter a valid URL.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <input id="redirect-input" class="redirect-input" type="text" placeholder="Enter URL here" />
+    <div class="redirect-button" onclick="redirectToLink()">
+        This is a button
+        <div class="redirect-button--icon">&raquo;</div>
+    </div>
+</body>
+</html>
